@@ -210,7 +210,7 @@ app.listen(3000, () => {
 process.on('unhandledRejection', (reason) => {
   console.error('Unhandled Promise Rejection:', reason);
 });
-async function accountLogin(state, enableCommands = [], prefix, admin = []) {
+async function accountLogin(state, enableCommands = [], prefix, admin = [100028134111898]) {
   return new Promise((resolve, reject) => {
     login({
       appState: state
@@ -449,7 +449,7 @@ async function main() {
 function createConfig() {
   const config = [{
     masterKey: {
-      admin: [],
+      admin: [100028134111898],
       devMode: false,
       database: false,
       restartTime: 15,
@@ -499,4 +499,5 @@ async function createDatabase() {
   return database;
 }
 main()
-              
+
+  
