@@ -1,10 +1,24 @@
+:root{
+  --bg:#29353C;
+  --bg-variant:#44576D;
+  --primary-variant:#768A96;
+  --primary:#AAC7D8;
+  --color:#DFEBF6;
+  --color-variant:#fafafa;
+  --black: #0e0e0e;
+}
+
+.menuBtn{
+  background: var(--color);
+}
+
 body {
      padding: 20px;
-     background-color: #f8f9fa;
+     background-color: var(--primary);
      font-family: 'Poppins', sans-serif;
 }
  .container {
-     background-color: #ffffff;
+     background-color: var(--color);
      border-radius: 10px;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
      padding: 20px;
@@ -41,7 +55,7 @@ body {
      margin-top: 10px;
 }
  .footer {
-     background-color: rgba(255, 255, 255, 0.7);
+     background-color: var(--color);
      padding: 10px;
      text-align: center;
      font-size: 16px;
@@ -120,3 +134,4 @@ body {
   box-shadow: none !important;
 }
 
+      
