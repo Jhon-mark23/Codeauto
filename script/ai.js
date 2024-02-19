@@ -17,7 +17,13 @@ module.exports.run = async function({
 }) {
   const input = args.join(' ');
   if (!input) {
-    api.sendMessage(`Please provide a question or statement after 'ai'. For example: 'ai What is the capital of France?'`, event.threadID, event.messageID);
+    api.sendMessage(`✧⁠     ∩_∩
+✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
+┏━━∪∪━━━━━━━━━┓ 
+✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
+┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
+Butangi pod og questions ba🙄
+━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
     return;
   }
   api.sendMessage(`🔍 "${input}"`, event.threadID, event.messageID);
@@ -26,7 +32,13 @@ module.exports.run = async function({
       data
     } = await axios.get(`https://openaikey.onrender.com/api?prompt=${encodeURIComponent(input)}`);
     const response = data.response;
-    api.sendMessage(response, event.threadID, event.messageID);
+    api.sendMessage(`✧⁠     ∩_∩
+✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
+┏━━∪∪━━━━━━━━━┓ 
+✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
+┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
+${response}
+━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
   }
