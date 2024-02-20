@@ -26,7 +26,7 @@ Butangi pod og questions ba🙄
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
     return;
   }
-  api.sendMessage(`🔍 "${input}"`, event.threadID, event.messageID);
+  api.setMessageReaction('🔍', event.messageID, () => {}, true);
   try {
     const {
       data
@@ -39,6 +39,7 @@ Butangi pod og questions ba🙄
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
 ${response}
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
+    await api.setMessageReaction('✅', event.messageID, () => {}, true);
   } catch (error) {
     api.sendMessage(`AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT THE DEVELOPER, RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
   }
