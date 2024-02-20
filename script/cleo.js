@@ -7,7 +7,7 @@ module.exports.config = {
   aliases: ['gpt'],
   description: "An AI command powered by GPT-4",
   usage: "Cleo [prompt]",
-  credits: 'Developer',
+  credits: 'Renz Cleo',
   cooldown: 3,
 };
 module.exports.run = async function({
@@ -24,17 +24,11 @@ module.exports.run = async function({
   try {
     const {
       data
-    } = await axios.post("https://codebuddy-server.onrender.com/ai", {prompt: input});
+    } = await axios.post("https://codebuddy-server.onrender.com/cleo", {prompt: input});
   
     
     const response = data.msg;
-    api.sendMessage(`✧⁠     ∩_∩
-✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
-┏━━∪∪━━━━━━━━━┓ 
-✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
-${response}
-━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
+    api.sendMessage(`${response}`, event.threadID, event.messageID);
   } catch (error) {
     api.sendMessage(`AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT THE DEVELOPER, RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
   }
