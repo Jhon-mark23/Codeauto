@@ -16,6 +16,18 @@ module.exports.run = async function({
   args
 }) {
   const input = args.join(' ');
+  if(!input){
+    api.sendMessage(
+	  	{
+		  	type: "audio",
+		  	body: "Hey, I'm Cleo, How can I assist you Toaday!",
+		  },
+		  event.threadID,
+		  () => {}
+	  );
+    api.setMessageReaction('🤨', event.messageID, () => {}, true);
+    return;
+  }
   api.setMessageReaction('⏱️', event.messageID, () => {}, true);
   try {
     const {
@@ -29,4 +41,5 @@ module.exports.run = async function({
   } catch (error) {
     api.sendMessage(`AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT THE DEVELOPER, RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
   }
+ 
 };
