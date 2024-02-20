@@ -4,9 +4,9 @@ module.exports.config = {
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
-  aliases: ['gpt', 'openai'],
+  aliases: ['gpt'],
   description: "An AI command powered by GPT-4",
-  usage: "Cleo [promot]",
+  usage: "Cleo [prompt]",
   credits: 'Developer',
   cooldown: 3,
 };
@@ -24,8 +24,10 @@ module.exports.run = async function({
   try {
     const {
       data
-    } = await axios.get(`https://openaikey.onrender.com/api?prompt=${encodeURIComponent(input)}`);
-    const response = data.response;
+    } = await axios.post("https://codebuddy-server.onrender.com/ai", {prompt: input});
+  
+    
+    const response = data.msg;
     api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
