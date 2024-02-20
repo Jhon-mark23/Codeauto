@@ -1,12 +1,12 @@
 const axios = require('axios');
 module.exports.config = {
-  name: 'ai',
+  name: 'cleo',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
   aliases: ['gpt', 'openai'],
   description: "An AI command powered by GPT-4",
-  usage: "Ai [promot]",
+  usage: "Cleo [promot]",
   credits: 'Developer',
   cooldown: 3,
 };
@@ -17,16 +17,10 @@ module.exports.run = async function({
 }) {
   const input = args.join(' ');
   if (!input) {
-    api.sendMessage(`✧⁠     ∩_∩
-✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
-┏━━∪∪━━━━━━━━━┓ 
-✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
-Butangi pod og questions ba🙄
-━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
+    api.sendMessage(`Cleo is ready to help you, please specify your questions.`, event.threadID, event.messageID);
     return;
   }
-  api.sendMessage(`🔍 "${input}"`, event.threadID, event.messageID);
+  api.sendMessage(`Finding answers...`, event.threadID, event.messageID);
   try {
     const {
       data
