@@ -17,19 +17,23 @@ module.exports.run = async function({
 }) {
   const input = args.join(' ');
   if (!input) {
-    api.sendMessage(`Cleo is ready to help you, please specify your questions.`, event.threadID, event.messageID);
+    api.setMessageReaction('🙃', event.messageID, () => {}, true);
+    api.sendMessage(`🗨 | CLEO | 
+━━━━━━━━━━━━━━━━ Cleo is ready to help you, please specify your questions.`, event.threadID, event.messageID);
     return;
-  }
-  api.sendMessage(`Finding answers...`, event.threadID, event.messageID);
-  try {
-    const {
-      data
-    } = await axios.post("https://codebuddy-server.onrender.com/cleo", {prompt: input});
+  }else{
+    api.setMessageReaction('⏱️', event.messageID, () => {}, true);
+    try {
+      const {
+        data
+      } = await axios.post("https://codebuddy-server.onrender.com/cleo", {prompt: input});
   
-    
-    const response = data.msg;
-    api.sendMessage(`${response}`, event.threadID, event.messageID);
+      const response = data.msg;
+    api.sendMessage(`🗨 | CLEO | 
+━━━━━━━━━━━━━━━━ ${response}`, event.threadID, event.messageID);
+  
   } catch (error) {
     api.sendMessage(`AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT THE DEVELOPER, RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
+  }
   }
 };
