@@ -1,12 +1,12 @@
 const axios = require('axios');
 module.exports.config = {
-  name: 'Pedro',
+  name: 'pedro',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
   aliases: ['pastor'],
   description: "An AI command powered by GPT-4",
-  usage: "Cleo [prompt]",
+  usage: "pedro [prompt]",
   credits: 'Renz Cleo',
   cooldown: 3,
 };
