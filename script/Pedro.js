@@ -17,7 +17,7 @@ module.exports.run = async function({
 }) {
   const input = args.join(' ');
   if(!input){
-    api.sendMessage(`✝️ | Pedro | 
+    api.sendMessage(`✝️ | 𝙿𝚎𝚍𝚛𝚘 | 
 ━━━━━━━━━━━━━━━━ Anong maipaglilingkod ko sayo kaibigan ng diyos?😇`, event.threadID, event.messageID);
     api.setMessageReaction('🤨', event.messageID, () => {}, true);
     return;
@@ -28,7 +28,7 @@ module.exports.run = async function({
       data
     } = await axios.post("https://codebuddy-server.onrender.com/ferdie", {prompt: input});
   const response = data.msg;
-  api.sendMessage(`✝️ | Pedro | 
+  api.sendMessage(`✝️ | 𝙿𝚎𝚍𝚛𝚘 | 
 ━━━━━━━━━━━━━━━━ ${response}`, event.threadID, event.messageID);
     await api.setMessageReaction('✅', event.messageID, () => {}, true);
   
