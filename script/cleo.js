@@ -17,14 +17,8 @@ module.exports.run = async function({
 }) {
   const input = args.join(' ');
   if(!input){
-    api.sendMessage(
-	  	{
-		  	type: "audio",
-		  	body: "Hey, I'm Cleo, How can I assist you Toaday!",
-		  },
-		  event.threadID,
-		  () => {}
-	  );
+    api.sendMessage(`🗨 | 𝙲𝚕𝚎𝚘 | 
+━━━━━━━━━━━━━━━━ Hello! 👋 How can I assist you today?`, event.threadID, event.messageID);
     api.setMessageReaction('🤨', event.messageID, () => {}, true);
     return;
   }
@@ -39,7 +33,7 @@ module.exports.run = async function({
     await api.setMessageReaction('✅', event.messageID, () => {}, true);
   
   } catch (error) {
-    api.sendMessage(`AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT THE DEVELOPER, RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
+    api.sendMessage(`⚠️AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
   }
  
 };
