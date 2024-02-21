@@ -18,7 +18,7 @@ module.exports.run = async function({
   const input = args.join(' ');
   if(!input){
     api.sendMessage(`✝️ | 𝙿𝚎𝚍𝚛𝚘 | 
-━━━━━━━━━━━━━━━━ Anong maipaglilingkod ko sayo kaibigan ng diyos?😇`, event.threadID, event.messageID);
+━━━━━━━━━━━━━━━━\nAnong maipaglilingkod ko sayo kaibigan ng diyos?😇`, event.threadID, event.messageID);
     api.setMessageReaction('🤨', event.messageID, () => {}, true);
     return;
   }
