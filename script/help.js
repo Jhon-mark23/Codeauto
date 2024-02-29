@@ -22,6 +22,7 @@ module.exports.run = async function({
   ★ Cleo
   ★ Music 
   ★ Pedro 
+  ★ Poulyn 
   ★ Shoti
 ━━━━━━━━━━━━━━━
 𝗕𝗼𝘁 𝗼𝘄𝗻𝗲𝗿: 𝚁𝚎𝚗𝚣 𝙲𝚕𝚎𝚘
