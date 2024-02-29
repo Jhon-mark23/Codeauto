@@ -1,22 +1,23 @@
+const axios = require('axios');
 module.exports.config = {
   name: 'help',
   version: '1.0.0',
   role: 0,
-  hasPrefix: true,
+  hasPrefix: false,
   aliases: ['info'],
-  description: "Beginner's guide",
-  usage: "Help [page] or [command]",
-  credits: 'Develeoper',
+  description: "",
+  usage: "Cleo [prompt]",
+  credits: 'Renz Cleo',
+  cooldown: 3,
 };
 module.exports.run = async function({
   api,
   event,
-  enableCommands,
-  args,
-  Utils,
-  prefix
+  args
 }) {
-  api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
+  const input = args.join(' ');
+  if(!input){
+    api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
 ━━━━━━━━━━━━━━━
   ★ Adduser 
   ★ Ai
@@ -29,23 +30,9 @@ module.exports.run = async function({
 
 𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗔𝗶: https://codebuddy.great-site.net
 
-𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗬𝗧: https://www.youtube.com/@CodeBuddySolutions`, threadID, messageID);
-};
-module.exports.handleEvent = async function({
-  api,
-  event,
-  prefix
-}) {
-  const {
-    threadID,
-    messageID,
-    body
-  } = event;
-  const message = prefix ? 'This is my prefix: ' + prefix : "𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 👾
-━━━━━━━━━━━━━━━
- Sorry, I don't have a prefix.
-━━━━━━━━━━━━━━━";
-  if (body?.toLowerCase().startsWith('prefix')) {
-    api.sendMessage(message, threadID, messageID);
+𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗬𝗧: https://www.youtube.com/@CodeBuddySolutions`, event.threadID, event.messageID);
+    api.setMessageReaction('🤍', event.messageID, () => {}, true);
+    return;
   }
-}
+ 
+};
