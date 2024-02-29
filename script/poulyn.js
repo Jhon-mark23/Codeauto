@@ -15,6 +15,8 @@ module.exports.run = async function({
   event,
   args
 }) {
+  const info = await api.getUserInfo(event.senderID);
+  const name = info[event.senderID].name;
   const input = args.join(' ');
   if(!input){
     api.sendMessage(`🎀 | 𝙿𝚘𝚞𝚕𝚢𝚗 | 
@@ -26,7 +28,7 @@ module.exports.run = async function({
   try {
     const {
       data
-    } = await axios.post("https://codebuddy-server.onrender.com/ai", {prompt: input});
+    } = await axios.post("https://codebuddy-server.onrender.com/ai", {prompt: input, user: name});
   const response = data.msg;
   api.sendMessage(`🎀 | 𝙿𝚘𝚞𝚕𝚢𝚗 | 
 ━━━━━━━━━━━━━━━━\n${response}`, event.threadID, event.messageID);
