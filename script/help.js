@@ -4,7 +4,7 @@ module.exports.config = {
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
-  aliases: ['info'],
+  aliases: ['commands'],
   description: "",
   usage: "Cleo [prompt]",
   credits: 'Renz Cleo',
@@ -15,9 +15,7 @@ module.exports.run = async function({
   event,
   args
 }) {
-  const input = args.join(' ');
-  if(!input){
-    api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
+  api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
 ━━━━━━━━━━━━━━━
   ★ Adduser 
   ★ Ai
@@ -31,8 +29,4 @@ module.exports.run = async function({
 𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗔𝗶: https://codebuddy.great-site.net
 
 𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗬𝗧: https://www.youtube.com/@CodeBuddySolutions`, event.threadID, event.messageID);
-    api.setMessageReaction('🤍', event.messageID, () => {}, true);
-    return;
-  }
- 
 };
