@@ -14,19 +14,19 @@ module.exports.config = {
 
 	version: "1.0.0",
 
-	hasPermission: 1,
+	hasPermission: 2,
 
 	credits: "Jonell Magallanes",
 
 	description: "Manage and enforce banned words",
 
-	usePrefix: true,
+	usePrefix: false,
 
 	commandCategory: "admin",
 
 	usages: "add [word] | remove [word] | list | on | off",
 
-	cooldowns: 5,
+	cooldowns: 0,
 
 };
 
