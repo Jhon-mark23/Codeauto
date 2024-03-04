@@ -24,6 +24,7 @@ module.exports.run = async function({
   ★ Pedro 
   ★ Poulyn
   ★ Gemini
+  ★ Gen
   ★ Shoti
   ★ Pxart
   ★ Emojimix
