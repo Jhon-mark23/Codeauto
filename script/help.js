@@ -25,7 +25,7 @@ module.exports.run = async function({
       let page = 1;
       let start = (page - 1) * pages;
       let end = start + pages;
-      let helpMessage = 𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
+      let helpMessage = `𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
 ━━━━━━━━━━━━━━━`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
         helpMessage += `\n\t★ ${prefix}${commands[i]} `;
@@ -42,9 +42,10 @@ module.exports.run = async function({
       const pages = 20;
       let start = (page - 1) * pages;
       let end = start + pages;
-      let helpMessage = `Command List:\n\n`;
+      let helpMessage = `𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
+━━━━━━━━━━━━━━━`;
       for (let i = start; i < Math.min(end, commands.length); i++) {
-        helpMessage += `\t★ ${prefix}${commands[i]} \n`;
+        helpMessage += `\n\t★ ${prefix}${commands[i]} `;
       }
       
       helpMessage += `\nPage ${page} of ${Math.ceil(commands.length / pages)}`;
