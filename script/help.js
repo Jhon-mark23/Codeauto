@@ -22,7 +22,8 @@ module.exports.run = async function({
   ★ Cleo
   ★ Music 
   ★ Pedro 
-  ★ Poulyn 
+  ★ Poulyn
+  ★ Gemini
   ★ Shoti
   ★ Pxart
   ★ Emojimix
