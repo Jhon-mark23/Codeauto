@@ -13,7 +13,7 @@ module.exports.config = {
 
 module.exports.run = async ({ api, event, args }) => {
 
-  api.setMessageReaction("⏳", event.messageID, (err) => {
+  api.setMessageReaction("🤍", event.messageID, (err) => {
      }, true);
 api.sendTypingIndicator(event.threadID, true);
 
@@ -23,11 +23,11 @@ api.sendTypingIndicator(event.threadID, true);
   const request = require("request");
   const prompt = args.join(" ");
 
-  if (!prompt[0]) { api.sendMessage("Downloading...", threadID, messageID);
+  if (!prompt[0]) { api.sendMessage("Wait lng ha...", threadID, messageID);
     }
 
  try {
-  const response = await axios.post(`https://your-shoti-api.vercel.app/api/v1/get`, { apikey: `$shoti-1hnqno1k924d3oodg58` });
+  const response = await axios.post(`https://shoti-srv1.onrender.com/api/v1/get`, { apikey: `$shoti-1hg4gifgnlfdmeslom8` });
 
   const path = __dirname + `/cache/shoti/shoti.mp4`;
   const file = fs.createWriteStream(path);
