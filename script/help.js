@@ -24,15 +24,9 @@ module.exports.run = async function({
   ★ Pedro 
   ★ Poulyn
   ★ Gemini
-  ★ Gen
   ★ Shoti
-  ★ Pxart
-  ★ Emojimix
   ★ Qoute
   ★ Unsend
-  ★ Poli
-  ★ Dictionary
-  ★ Anime
   ★ Hercai
 ━━━━━━━━━━━━━━━
 𝗕𝗼𝘁 𝗼𝘄𝗻𝗲𝗿: 𝚁𝚎𝚗𝚣 𝙲𝚕𝚎𝚘
