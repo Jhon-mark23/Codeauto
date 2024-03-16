@@ -24,10 +24,10 @@ module.exports.run = async function({
     return;
   }
   api.setMessageReaction('🤍', event.messageID, () => {}, true);
+  const apiUrl = `https://lyrist.vercel.app/api/${encodeURIComponent(input)}`;
   try {
-      const apiUrl = `https://lyrist.vercel.app/api/${encodeURIComponent(req.body.prompt)}`;
       await axios.get(apiUrl)
-        .then(response =>{
+        .then(response => {
           api.sendMessage(`🎧𝚃𝚒𝚝𝚕𝚎: ${response.data.title}\n👤𝙰𝚛𝚝𝚒𝚜𝚝: ${response.data.artist}\n\n${response.data.lyrics}`, event.threadID, event.messageID);
           api.setMessageReaction('💚', event.messageID, () => {}, true);
         })
