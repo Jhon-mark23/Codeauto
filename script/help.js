@@ -6,7 +6,7 @@ module.exports.config = {
   hasPrefix: false,
   aliases: ['info'],
   description: "",
-  usage: "Cleo [prompt]",
+  usage: "help [prompt]",
   credits: 'Renz Cleo',
   cooldown: 3,
 };
@@ -28,6 +28,7 @@ module.exports.run = async function({
   ★ Qoute
   ★ Unsend
   ★ Hercai
+  ★ Lyrics
 ━━━━━━━━━━━━━━━
 𝗕𝗼𝘁 𝗼𝘄𝗻𝗲𝗿: 𝚁𝚎𝚗𝚣 𝙲𝚕𝚎𝚘
 
