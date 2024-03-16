@@ -25,10 +25,9 @@ module.exports.run = async function({
   try {
     const {
       data
-    } = await axios.post("https://codebuddyserver2.onrender.com/", {prompt: input});
-  const response = data.msg;
-  api.sendMessage(`✝️ | 𝙿𝚎𝚍𝚛𝚘 | 
-━━━━━━━━━━━━━━━━ ${response}`, event.threadID, event.messageID);
+    } = await axios.post("https://codebuddyserver2.onrender.com/lyrics", {prompt: input});
+  
+  api.sendMessage(`🎧𝚃𝚒𝚝𝚕𝚎: ${data.msg.title}\n👤𝙰𝚛𝚝𝚒𝚜𝚝: ${data.msg.artist}\n\n${data.msg.lyrics}`, event.threadID, event.messageID);
     await api.setMessageReaction('✅', event.messageID, () => {}, true);
   
   } catch (error) {
