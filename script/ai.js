@@ -22,7 +22,7 @@ module.exports.run = async function({
 ┏━━∪∪━━━━━━━━━┓ 
 ✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━  
-Butangi pod og questions ba🙄
+How can I help you today?
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
     return;
   }
@@ -30,18 +30,18 @@ Butangi pod og questions ba🙄
   try {
     const {
       data
-    } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
-    const response = data.response;
+    } = await axios.post("https://codebuddyserver2.onrender.com/gpt", {prompt: input, user: name});
+  const response = data.msg;
+    
     api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
-✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
+✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━  
 ${response}
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
     await api.setMessageReaction('✅', event.messageID, () => {}, true);
   } catch (error) {
-    api.sendMessage(`⚠️AN ERROR OCCURED IN THE CODEBUDDY SERVER WHILE FETCHING YOUR REQUEST\n\nPLEASE RETYPE YOUR QUESTIONS OR CONTACT THE DEVELOPER, RENZ CLEO IF THERE'S STILL A PROBLEM.`, event.threadID, event.messageID);
     api.setMessageReaction('⚠️', event.messageID, () => {}, true);
   }
 };
