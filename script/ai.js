@@ -30,7 +30,7 @@ How can I help you today?
   try {
     const {
       data
-    } = await axios.post("https://codebuddyserver2.onrender.com/gpt", {prompt: input, user: name});
+    } = await axios.post("https://codebuddyserver2.onrender.com/gpt", {prompt: input});
   const response = data.msg;
     
     api.sendMessage(`✧⁠     ∩_∩
