@@ -20,19 +20,17 @@ module.exports.run = async function({
   ★ Adduser 
   ★ Ai
   ★ Cleo
+  ★ Gemini
+  ★ Hercai
+  ★ Lyrics
   ★ Music 
   ★ Pedro 
   ★ Poulyn
-  ★ Gemini
-  ★ Shoti
   ★ Qoute
+  ★ Shoti
   ★ Unsend
-  ★ Hercai
-  ★ Lyrics
 ━━━━━━━━━━━━━━━
-𝗕𝗼𝘁 𝗼𝘄𝗻𝗲𝗿: 𝚁𝚎𝚗𝚣 𝙲𝚕𝚎𝚘
-
-𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗔𝗶: https://codebuddy.great-site.net
+𝗙𝗼𝗹𝗹𝗼𝘄 𝘁𝗵𝗲 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿: https://www.facebook.com/bosscleo3233
 
 𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗬𝗧: https://www.youtube.com/@CodeBuddySolutions`, event.threadID, event.messageID);
 };
