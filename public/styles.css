@@ -112,7 +112,7 @@
   display: flex;
   justify-content: center;
 }
-.termsBtn button{
+.termsBtn button, .closeResult{
   color: #fff;
   padding: 5px 30px;
   border-radius: 5px;
@@ -238,9 +238,22 @@ body {
 }
 
  #result {
-     padding: 10px;
+     display: none;
+     font-family: "Edu NSW ACT Foundation";
+     width: 89%;
+     padding: 25px 20px;
      margin-top: 20px;
      border-radius: 5px;
+     position: fixed;
+     top: 50%;
+     left: 50%;
+     transform: translate(-50%, -50%);
+     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+#result button{
+  font-family: "Poppins";
+  padding: 5px 15px;
 }
  .center-placeholder::placeholder {
      text-align: center;
@@ -289,4 +302,4 @@ body {
 
 #listOfCommands:not(.modal), #listOfCommandsEvent:not(.modal), #prefixOfCommands:not(.modal), #adminOfCommands:not(.modal) {
   box-shadow: none !important;
-  }
+    }
