@@ -18,7 +18,7 @@ menuBtn.onclick = () => {
 try{
   const response = fetch("/info");
   const data = response.json();
-  online.innerHTML = data.length;
+  window.onload = () => online.innerHTML = Object.keys(JSON.parse(data)).length;
 }catch(err){
   console.log(err)
 }
