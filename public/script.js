@@ -19,8 +19,8 @@ async function onl(){
 try{
   const response = await fetch("/info");
   const data = await response.json();
-  online.innerHTML = 'Miss na kita';
-  console.log(response);
+  online.innerHTML = Object.keys(data).length;
+  console.log(response.length);
 }catch(err){
   console.log(err)
 }
