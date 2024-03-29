@@ -18,9 +18,8 @@ menuBtn.onclick = () => {
 async function onl(){
 try{
   const response = await fetch("/info");
-  const data = await response.json();
-  online.innerHTML = "";
-  online.innerHTML = Object.keys(data).length;
+  online.innerHTML = response.length;
+  console.log(response);
 }catch(err){
   console.log(err)
 }
