@@ -79,9 +79,7 @@ async function State() {
   selectAllEvents();
   const jsonInput = document.getElementById('json-data');
   const button = document.getElementById('submitButton');
-  if (!Commands[0].commands.length) {
-    return showResult('Please provide at least one valid command for execution.');
-  }
+  
   try {
     button.style.display = 'none';
     const State = JSON.parse(jsonInput.value);
@@ -126,9 +124,9 @@ function showResult(message) {
   resultContainer.innerHTML = `<h5>${message}</h5>
   <button class="closeResult">Okay</button>`;
   resultContainer.style.display = 'block';
-}
 document.querySelector('.closeResult').onclick = () => {
   resultContainer.style.display = 'none';
+ }
 }
 
 async function commandList() {
