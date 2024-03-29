@@ -15,13 +15,17 @@ menuBtn.onclick = () => {
 
 //online
   const online = document.querySelector('.online');
+async function onl(){
 try{
-  const response = fetch("/info");
-  const data = response.json();
-  window.onload = () => online.innerHTML = Object.keys(JSON.parse(data)).length;
+  const response = await fetch("/info");
+  const data = await response.json();
+  online.innerHTML = "";
+  online.innerHTML = Object.keys(data).length;
 }catch(err){
   console.log(err)
 }
+}
+onl();
 
 document.getElementById('agreeCheckbox').addEventListener('change', function() {
   document.getElementById('submitButton').disabled = !this.checked;
