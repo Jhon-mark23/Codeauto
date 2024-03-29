@@ -8,6 +8,130 @@
   --black: #0e0e0e;
 }
 
+.navbar{
+  height: 0;
+  margin: 0;
+  padding: 0px 15px;
+
+}
+
+.navbar p{
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar li{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navigation{
+  width: 100%;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  z-index: 2;
+  overflow: hidden;
+  background: var(--color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+}
+
+  .navigation .navi{
+    width: 100%;
+    padding: 10px 8px 10px 12px;
+    display: flex;
+    align-items: center;
+    background: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  .navigation h1{
+    font-family: 'Poppins', Sans-Serif;
+    font-size: 18.5px;
+    font-weight: 700;
+    margin: 0;
+  }
+  .navigation h3{
+    font-size: 15px;
+    font-weight: 400;
+    margin: 0;
+  }
+  .menuBtn, .logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+  }
+  .logo img{
+    width: 130%;
+    border-radius: 50%;
+  }
+  .menuIcon{
+    font-size: 20px;
+    padding: 9px;
+    border-radius: 5px;
+    background: var(--color);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+  }
+  .fa-xmark{
+    padding: 9px 10px;
+  }
+  .systemtitle{
+    width: 100%;
+    padding: 0px 10px;
+  }
+
+.bgTerms{
+  display: none;
+  width: 100%;
+  padding: 30px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 5;
+  scroll-behavior: smooth;
+  background: rgba(0,0,0,0.4);
+}
+
+.termsConditions{
+  width: 100%;
+  overflow: auto;
+}
+
+.termcon{
+  color: #007bff;
+}
+
+.termsBtn{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.termsBtn button{
+  color: #fff;
+  padding: 5px 30px;
+  border-radius: 5px;
+  border: 1px solid #007bff;
+  background: #007bff;
+}
+
+.info img{
+  width: 100%;
+}
+
+.info p{
+  text-align: center;
+}
+
+.displayNone{
+  display: none;
+}
+
 .menuBtn{
   background: var(--color);
 }
@@ -20,6 +144,7 @@
   text-align: center;
   font-size: 22px;
   font-weight: 500;
+  font-family: "Protest Revolution", Sans-Serif;
 }
 
 .updates p{
@@ -44,13 +169,13 @@
 }
 
 body {
-     padding: 20px;
+     padding: 80px 20px 40px;
      background-color: var(--primary);
      font-family: 'Poppins', sans-serif;
 }
  .container {
      background-color: var(--color);
-     border-radius: 10px;
+     border-radius: 7px;
      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
      padding: 20px;
      margin-top: 20px;
@@ -164,6 +289,4 @@ body {
 
 #listOfCommands:not(.modal), #listOfCommandsEvent:not(.modal), #prefixOfCommands:not(.modal), #adminOfCommands:not(.modal) {
   box-shadow: none !important;
-}
-
-
+  }
