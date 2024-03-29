@@ -18,7 +18,8 @@ menuBtn.onclick = () => {
 async function onl(){
 try{
   const response = await fetch("/info");
-  online.innerHTML = response.length;
+  const data = await response.json();
+  online.innerHTML = 'Miss na kita';
   console.log(response);
 }catch(err){
   console.log(err)
