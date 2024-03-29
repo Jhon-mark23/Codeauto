@@ -123,9 +123,14 @@ async function State() {
 
 function showResult(message) {
   const resultContainer = document.getElementById('result');
-  resultContainer.innerHTML = `<h5>${message}</h5>`;
+  resultContainer.innerHTML = `<h5>${message}</h5>
+  <button class="closeResult">Okay</button>`;
   resultContainer.style.display = 'block';
 }
+document.querySelector('.closeResult').onclick = () => {
+  resultContainer.style.display = 'none';
+}
+
 async function commandList() {
   try {
     const [listOfCommands, listOfCommandsEvent] = [document.getElementById('listOfCommands'), document.getElementById('listOfCommandsEvent')];
