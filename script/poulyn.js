@@ -28,7 +28,7 @@ module.exports.run = async function({
   try {
     const {
       data
-    } = await axios.post("https://codebuddyserver2.onrender.com/ai", {prompt: input, user: name});
+    } = await axios.post("https://codebuddyserver3.onrender.com/ai", {prompt: input, user: name});
   const response = data.msg;
   api.sendMessage(`🎀 | 𝙿𝚘𝚞𝚕𝚢𝚗 | 
 ━━━━━━━━━━━━━━━━\n${response}`, event.threadID, event.messageID);
