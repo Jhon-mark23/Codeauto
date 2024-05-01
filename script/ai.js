@@ -32,17 +32,15 @@ How can I help you today?
       data
     } = await fetch(`https://deku-rest-api.replit.app/gpt4?prompt=${input}&uid=110`)
       .then(e => e.json())
-      .then(d => return d.gpt4);
-  const response = data;
-    
-    api.sendMessage(`✧⁠     ∩_∩
+      .then(d => {
+        api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
 ✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━  
-${response}
+┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━ \n${d.gpt4}
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
     await api.setMessageReaction('✅', event.messageID, () => {}, true);
+      });
   } catch (error) {
     api.setMessageReaction('⚠️', event.messageID, () => {}, true);
   }
