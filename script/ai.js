@@ -20,7 +20,7 @@ module.exports.run = async function({
     api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
-✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 v2    ✿
+✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━  
 How can I help you today?
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
@@ -30,13 +30,15 @@ How can I help you today?
   try {
     const {
       data
-    } = await axios.post("https://codebuddyserver3.onrender.com/gpt", {prompt: input});
-  const response = data.msg;
+    } = await fetch(`https://deku-rest-api.replit.app/gpt4?prompt=${input}&uid=110`)
+      .then(e => e.json())
+      .then(d => return d.gpt4);
+  const response = data;
     
     api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
-✿     𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
+✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━  
 ${response}
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
