@@ -28,9 +28,7 @@ How can I help you today?
   }
   api.setMessageReaction('🔍', event.messageID, () => {}, true);
   try {
-    const {
-      data
-    } = await fetch(`https://deku-rest-api.replit.app/gpt4?prompt=${input}&uid=110`)
+    fetch(`https://deku-rest-api.replit.app/gpt4?prompt=${input}&uid=110`)
       .then(e => e.json())
       .then(d => {
         api.sendMessage(`✧⁠     ∩_∩
