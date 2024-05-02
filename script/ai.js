@@ -30,12 +30,12 @@ How can I help you today?
   
   try {
     const { data } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
-    let response = ✧⁠     ∩_∩
+    let response = `✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
 ✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━ \n${data.response}
-━━━━━━━━━━━━━━━;
+━━━━━━━━━━━━━━━`;
     api.sendMessage(response, event.threadID, event.messageID);
   } catch (error) {
     api.setMessageReaction('⚠️', event.messageID, () => {}, true);
