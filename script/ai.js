@@ -28,15 +28,17 @@ How can I help you today?
   }
   api.setMessageReaction('🔍', event.messageID, () => {}, true);
   try {
-    const { data } = await axios.get(`https://deku-rest-api.replit.app/gpt4?prompt=${input}&uid=100`);
-    let response = data.gpt4;
-    api.sendMessage(`✧⁠     ∩_∩
+    fetch("https://deku-rest-api.replit.app/gpt4?prompt=hi&uid=100")
+    .then(e => e.json())
+    .then(d => {
+      api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
 ✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━ \n${response}
+┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━ \n${d.gpt4}
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
-    await api.setMessageReaction('✅', event.messageID, () => {}, true);
+    api.setMessageReaction('✅', event.messageID, () => {}, true);
+      })
   } catch (error) {
     api.setMessageReaction('⚠️', event.messageID, () => {}, true);
   }
