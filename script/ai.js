@@ -28,7 +28,7 @@ How can I help you today?
   }
   api.setMessageReaction('🔍', event.messageID, () => {}, true);
   try {
-    const { data } = await axios.get(`https://deku-rest-api.replit.app/gpt4?prompt={input}&uid=100`);
+    const { data } = await axios.get(`https://deku-rest-api.replit.app/gpt4?prompt=${input}&uid=100`);
     let response = data.gpt4;
     api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
