@@ -17,11 +17,13 @@ module.exports.run = async function ({ api, event, args}) {
     const uid = event.senderID;
     const info = await api.getUserInfo(event.senderID);
     const name = info[event.senderID].name;
-    const question = `In this conversation, you're Cleo. Add some emoji on your content to make it adorable ${name}. Now answer the following make it detailed: ` + args.join(' ');
+    const query = args.join(' ');
     
-    if (!question)
+    if (!query)
       return api.sendMessage(`🗨 | 𝙲𝚕𝚎𝚘 | 
-━━━━━━━━━━━━━━━━\nHello! 👋 How can I assist you today?`, event.threadID, event.messageID);
+━━━━━━━━━━━━━━━━ Hello! 👋 How can I assist you today?`, event.threadID, event.messageID);
+    
+    const question = `In this conversation, you're Cleo. Add some emoji on your content to make it adorable ${name}. Now answer the following make it detailed: ` + query;
 
     try {
        api.setMessageReaction("⏱️", event.messageID, () => {}, true);
@@ -34,12 +36,12 @@ module.exports.run = async function ({ api, event, args}) {
         const answer = respons.data.response;
         api.setMessageReaction("✅", event.messageID, () => {}, true);
     const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | 
-━━━━━━━━━━━━━━━━\n
-${answer}`;
+━━━━━━━━━━━━━━━━
+ ${answer}`;
       api.sendMessage(aiq, event.threadID, event.messageID);
     } catch (error) {
         console.error(error);
         api.setMessageReaction("⚠️", event.messageID, () => {}, true);
     }
 };
-                               
+                             
