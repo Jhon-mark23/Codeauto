@@ -1,43 +1,61 @@
 const axios = require('axios');
+const fs = require('fs');
 
 module.exports.config = {
-  name: 'ai',
-  version: '1.0.0',
-  role: 0,
-  hasPrefix: false,
-  aliases: ['gpt', 'openai'],
-  description: "An AI command powered by GPT-4",
-  usage: "Ai [promot]",
-  credits: 'Developer',
-  cooldown: 0,
+    name: "ai",
+    version: "1.0.0",
+    hasPermssion: 0,
+    credits: "Churchill", // modified by Joshua Apostol
+    description: "EDUCATIONAL",
+    usePrefix: false,
+    commandCategory: "AI",
+    usages: "[question]",
+    cooldowns: 0
 };
 
-module.exports.run = async function({ api, event, args }) {
-  const input = args.join(' ');
-  
-  if (!input) {
-    api.sendMessage(`✧⁠     ∩_∩
+module.exports.run = async function ({ api, event, args, botname, admin}) {
+    const question = args.join(' ');
+    
+    if (!question)
+      return api.sendMessage(`✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
-✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━  
-How can I help you today?
+✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿
+┗━━━━━━━━━━━━━┛
+━━━━━━━━━━━━━━━
+How can I assist you today?
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
-    return;
-  }
-  
-  api.setMessageReaction('🔍', event.messageID, () => {}, true);
-  
-  try {
-    const { data } = await axios.get(`https://openaikey-x20f.onrender.com/api?prompt=${encodeURIComponent(input)}`);
-    let response = `✧⁠     ∩_∩
+
+    try {
+       api.setMessageReaction("⏰", event.messageID, () => {}, true);
+        const info1 = await new Promise(resolve => {
+        api.sendMessage("⏰ Please wait...", event.threadID, (err, info1) => {
+        resolve(info1);
+       }, event.messageID);
+      });
+
+        const uid = event.senderID;
+        const info = await api.getUserInfo(event.senderID);
+        const name = info[event.senderID].name;
+
+      const userInput = encodeURIComponent(question);
+
+        const apiUrl = `https://markdevs-last-api.onrender.com/gpt4?prompt=${userInput}&uid=${uid}`;
+        
+        const respons = await axios.get(apiUrl);
+        const answer = respons.data.gpt4;
+        api.setMessageReaction("✅", event.messageID, () => {}, true);
+    const aiq = `✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
-✿      𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆       ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━ \n${data.response}
+✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿
+┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
+${answer}
 ━━━━━━━━━━━━━━━`;
-    api.sendMessage(response, event.threadID, event.messageID);
-  } catch (error) {
-    api.setMessageReaction('⚠️', event.messageID, () => {}, true);
-  }
+      api.editMessage(aiq, info1.messageID, () => {});
+    } catch (error) {
+        console.error(error);
+        api.sendMessage("An error occurred while processing your request.", event.threadID);
+    }
 };
+        
