@@ -13,7 +13,7 @@ module.exports.config = {
     cooldowns: 0
 };
 
-module.exports.run = async function ({ api, event, args, botname, admin}) {
+module.exports.run = async function ({ api, event, args}) {
     const question = args.join(' ');
     
     if (!question)
@@ -45,16 +45,17 @@ How can I assist you today?
         const respons = await axios.get(apiUrl);
         const answer = respons.data.gpt4;
         api.setMessageReaction("✅", event.messageID, () => {}, true);
-    const aiq = `✧⁠     ∩_∩
+        const aiq = `✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
 ✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
 ${answer}
 ━━━━━━━━━━━━━━━`;
-      api.editMessage(aiq, info1.messageID, () => {});
+      api.sendMessage(aiq, event.threadID, event.messageID);
     } catch (error) {
         console.error(error);
-        api.sendMessage("An error occurred while processing your request.", event.threadID);
+        api.setMessageReaction('⚠️', event.messageID, () => {}, true);
     }
 };
+                                        
