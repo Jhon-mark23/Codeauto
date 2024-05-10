@@ -58,4 +58,3 @@ ${answer}
         api.sendMessage("An error occurred while processing your request.", event.threadID);
     }
 };
-            
