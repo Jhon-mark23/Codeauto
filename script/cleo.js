@@ -13,7 +13,7 @@ module.exports.config = {
     cooldowns: 0
 };
 
-module.exports.run = async function ({ api, event, args, botname, admin}) {
+module.exports.run = async function ({ api, event, args}) {
     const uid = event.senderID;
     const info = await api.getUserInfo(event.senderID);
     const name = info[event.senderID].name;
@@ -25,11 +25,6 @@ module.exports.run = async function ({ api, event, args, botname, admin}) {
 
     try {
        api.setMessageReaction("⏱️", event.messageID, () => {}, true);
-        const info1 = await new Promise(resolve => {
-        api.sendMessage("⏱️ Please wait...", event.threadID, (err, info1) => {
-        resolve(info1);
-       }, event.messageID);
-      });
 
       const userInput = encodeURIComponent(question);
 
@@ -41,9 +36,10 @@ module.exports.run = async function ({ api, event, args, botname, admin}) {
     const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | 
 ━━━━━━━━━━━━━━━━\n
 ${answer}`;
-      api.editMessage(aiq, info1.messageID, () => {});
+      api.sendMessage(aiq, event.threadID, event.messageID);
     } catch (error) {
         console.error(error);
         api.setMessageReaction("⚠️", event.messageID, () => {}, true);
     }
 };
+                               
