@@ -14,7 +14,10 @@ module.exports.config = {
 };
 
 module.exports.run = async function ({ api, event, args, botname, admin}) {
-    const question = args.join(' ');
+    const uid = event.senderID;
+    const info = await api.getUserInfo(event.senderID);
+    const name = info[event.senderID].name;
+    const question = `In this conversation, you're Cleo. Add some emoji on your content to make it adorable ${name}. Now answer the following make it detailed: ` + args.join(' ');
     
     if (!question)
       return api.sendMessage(`🗨 | 𝙲𝚕𝚎𝚘 | 
@@ -28,13 +31,9 @@ module.exports.run = async function ({ api, event, args, botname, admin}) {
        }, event.messageID);
       });
 
-        const uid = event.senderID;
-        const info = await api.getUserInfo(event.senderID);
-        const name = info[event.senderID].name;
-
       const userInput = encodeURIComponent(question);
 
-        const apiUrl = `https://openaikey-x20f.onrender.com/api?prompt=In this conversation, you're Cleo. Add some emoji on your content to make it adorable. My name is ${name}. Now answer the following make it detailed: ${userInput}`;
+        const apiUrl = `https://openaikey-x20f.onrender.com/api?prompt=${userInput}`;
 
         const respons = await axios.get(apiUrl);
         const answer = respons.data.response;
@@ -48,4 +47,3 @@ ${answer}`;
         api.setMessageReaction("⚠️", event.messageID, () => {}, true);
     }
 };
-                              
