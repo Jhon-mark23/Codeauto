@@ -27,12 +27,7 @@ How can I assist you today?
 ━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
 
     try {
-       api.setMessageReaction("⏰", event.messageID, () => {}, true);
-        const info1 = await new Promise(resolve => {
-        api.sendMessage("⏰ Please wait...", event.threadID, (err, info1) => {
-        resolve(info1);
-       }, event.messageID);
-      });
+       api.setMessageReaction("🔍", event.messageID, () => {}, true);
 
         const uid = event.senderID;
         const info = await api.getUserInfo(event.senderID);
@@ -58,4 +53,4 @@ ${answer}
         api.setMessageReaction('⚠️', event.messageID, () => {}, true);
     }
 };
-                                        
+    
