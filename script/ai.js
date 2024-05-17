@@ -1,5 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
+const {
+  Hercai
+} = require('hercai');
+const herc = new Hercai();
 
 module.exports.config = {
     name: "ai",
@@ -35,10 +39,11 @@ How can I assist you today?
 
       const userInput = encodeURIComponent(question);
 
-        const apiUrl = `https://markdevs-last-api.onrender.com/gpt4?prompt=${userInput}&uid=${uid}`;
-        
-        const respons = await axios.get(apiUrl);
-        const answer = respons.data.gpt4;
+        const response = await herc.question({
+          model: "v3",
+          content: question
+        });
+        const answer = response.reply;
         api.setMessageReaction("✅", event.messageID, () => {}, true);
         const aiq = `✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
