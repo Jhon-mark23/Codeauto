@@ -1,5 +1,9 @@
 const axios = require('axios');
 const fs = require('fs');
+const {
+  Hercai
+} = require('hercai');
+const herc = new Hercai();
 
 module.exports.config = {
     name: "cleo",
@@ -30,10 +34,11 @@ module.exports.run = async function ({ api, event, args}) {
 
       const userInput = encodeURIComponent(question);
 
-        const apiUrl = `https://openaikey-x20f.onrender.com/api?prompt=${userInput}`;
-
-        const respons = await axios.get(apiUrl);
-        const answer = respons.data.response;
+        const response = await herc.question({
+          model: "v3",
+          content: question
+        });
+        const answer = response.reply;
         api.setMessageReaction("✅", event.messageID, () => {}, true);
     const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | 
 ━━━━━━━━━━━━━━━━
