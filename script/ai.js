@@ -9,7 +9,7 @@ module.exports.config = {
     name: "ai",
     version: "1.0.0",
     hasPermssion: 0,
-    credits: "Churchill", // modified by Joshua Apostol
+    credits: "renzz", 
     description: "EDUCATIONAL",
     usePrefix: false,
     commandCategory: "AI",
@@ -39,20 +39,19 @@ How can I assist you today?
 
       const userInput = encodeURIComponent(question);
 
-        const response = await herc.question({
-          model: "v3",
-          content: question
-        });
-        const answer = response.reply;
-        api.setMessageReaction("✅", event.messageID, () => {}, true);
-        const aiq = `✧⁠     ∩_∩
+        await axios.get(`https://api.easy-api.online/v1/globalgpt?q=${question}`)
+        .then(res => {
+            const answer = res.data.content;
+            api.setMessageReaction("✅", event.messageID, () => {}, true);
+            const aiq = `✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
 ┏━━∪∪━━━━━━━━━┓ 
 ✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿
 ┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
 ${answer}
 ━━━━━━━━━━━━━━━`;
-      api.sendMessage(aiq, event.threadID, event.messageID);
+           api.sendMessage(aiq, event.threadID, event.messageID);
+        })
     } catch (error) {
         console.error(error);
         api.setMessageReaction('⚠️', event.messageID, () => {}, true);
