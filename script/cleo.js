@@ -34,16 +34,15 @@ module.exports.run = async function ({ api, event, args}) {
 
       const userInput = encodeURIComponent(question);
 
-        const response = await herc.question({
-          model: "v3",
-          content: question
-        });
-        const answer = response.reply;
-        api.setMessageReaction("✅", event.messageID, () => {}, true);
-    const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | 
+      await axios.get(`https://api.easy-api.online/v1/globalgpt?q=${question}`)
+        .then(res => {
+          const answer = res.data.content;
+          api.setMessageReaction("✅", event.messageID, () => {}, true);
+          const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | 
 ━━━━━━━━━━━━━━━━
  ${answer}`;
-      api.sendMessage(aiq, event.threadID, event.messageID);
+          api.sendMessage(aiq, event.threadID, event.messageID);
+        })
     } catch (error) {
         console.error(error);
         api.setMessageReaction("⚠️", event.messageID, () => {}, true);
