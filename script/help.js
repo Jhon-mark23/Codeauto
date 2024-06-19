@@ -1,14 +1,14 @@
 const axios = require('axios');
 module.exports.config = {
-  name: 'help',
+  name: 'info',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
   aliases: ['info'],
   description: "",
-  usage: "help [prompt]",
+  usage: "info [prompt]",
   credits: 'Renz Cleo',
-  cooldown: 3,
+  cooldown: 0,
 };
 module.exports.run = async function({
   api,
@@ -17,11 +17,8 @@ module.exports.run = async function({
 }) {
   api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
 ━━━━━━━━━━━━━━━
-  ★ Adduser 
   ★ Ai
   ★ Cleo
-  ★ Gemini
-  ★ Hercai
   ★ Lyrics
   ★ Music 
   ★ Pedro 
