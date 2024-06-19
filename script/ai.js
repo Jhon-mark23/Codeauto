@@ -39,9 +39,9 @@ How can I assist you today?
 
       const userInput = encodeURIComponent(question);
 
-        await axios.get(`https://api.easy-api.online/v1/globalgpt?q=${question}`)
+        await axios.get(`https://markdevs-api.onrender.com/api/v3/gpt4?ask=${question}`)
         .then(res => {
-            const answer = res.data.content;
+            const answer = res.data.answer;
             api.setMessageReaction("✅", event.messageID, () => {}, true);
             const aiq = `✧⁠     ∩_∩
 ✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
