@@ -1,5 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
+const apiUrls = require('../apiConfig.js')
 
 async function getAnswers(q){
   try {
@@ -16,7 +17,7 @@ async function getAnswers(q){
 
 async function fetchFromAi(q, url){
   try {
-    const { data } = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=hi`);
+    const { data } = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
     if (data) return data.result.reply;
     
     throw new Error("No valid response from any AI service");
@@ -43,14 +44,12 @@ module.exports.run = async function ({ api, event, args}) {
     if (!question){
       return api.sendMessage(`✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\nHow can I assist you today?\n━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
     }
+
     try {
        api.setMessageReaction("🔍", event.messageID, () => {}, true);
-
-        const uid = event.senderID;
-        const info = await api.getUserInfo(event.senderID);
-        const name = info[event.senderID].name;
-        
+       
         const answer = await getAnswers(question);
+        
         api.setMessageReaction("✅", event.messageID, () => {}, true);
         const aiq = `✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━`;
         api.sendMessage(aiq, event.threadID, event.messageID);
