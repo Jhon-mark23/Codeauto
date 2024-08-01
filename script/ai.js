@@ -36,22 +36,14 @@ How can I assist you today?
         const uid = event.senderID;
         const info = await api.getUserInfo(event.senderID);
         const name = info[event.senderID].name;
-
-      const userInput = encodeURIComponent(question);
-
-        await axios.get(`https://markdevs-api.onrender.com/api/v3/gpt4?ask=${question}`)
-        .then(res => {
-            const answer = res.data.answer;
-            api.setMessageReaction("✅", event.messageID, () => {}, true);
-            const aiq = `✧⁠     ∩_∩
-✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
-┏━━∪∪━━━━━━━━━┓ 
-✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿
-┗━━━━━━━━━━━━━┛ ━━━━━━━━━━━━━━━
-${answer}
-━━━━━━━━━━━━━━━`;
-           api.sendMessage(aiq, event.threadID, event.messageID);
-        })
+        
+        const model = "gemini";
+        const response = await deku[model](question);
+        
+        const answer = response;
+        api.setMessageReaction("✅", event.messageID, () => {}, true);
+        const aiq = `✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━`;
+        api.sendMessage(aiq, event.threadID, event.messageID);
     } catch (error) {
         console.error(error);
         api.setMessageReaction('⚠️', event.messageID, () => {}, true);

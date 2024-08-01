@@ -1,9 +1,6 @@
 const axios = require('axios');
 const fs = require('fs');
-const {
-  Hercai
-} = require('hercai');
-const herc = new Hercai();
+const apiUrls = require('../apiConfig.js')
 
 module.exports.config = {
     name: "cleo",
@@ -31,18 +28,22 @@ module.exports.run = async function ({ api, event, args}) {
 
     try {
        api.setMessageReaction("⏱️", event.messageID, () => {}, true);
-
-      const userInput = encodeURIComponent(question);
-
-      await axios.get(`https://markdevs-api.onrender.com/api/v3/gpt4?ask=${question}`)
-        .then(res => {
-          const answer = res.data.answer;
+       
+      for(url of apiUrls.joshuaApi){
+        try {
+          const data = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=hi`);
+          
+          const answer = data.result.reply;
+          
           api.setMessageReaction("✅", event.messageID, () => {}, true);
-          const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | 
-━━━━━━━━━━━━━━━━
- ${answer}`;
-          api.sendMessage(aiq, event.threadID, event.messageID);
-        })
+          
+          const aiq = `🗨 | 𝙲𝚕𝚎𝚘 | \n━━━━━━━━━━━━━━━━\n${answer}`;
+          
+          api.sendMessage(aiq, event.threadID, event.messageID);          
+          break
+        } catch (e) {}
+      }
+          
     } catch (error) {
         console.error(error);
         api.setMessageReaction("⚠️", event.messageID, () => {}, true);
