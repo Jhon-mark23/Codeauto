@@ -1,9 +1,29 @@
 const axios = require('axios');
 const fs = require('fs');
-const {
-  Hercai
-} = require('hercai');
-const herc = new Hercai();
+
+async function getAnswers(q){
+  try {
+    for(url of apiUrls.joshuaApi){
+      const data = await fetchFromAi(q, url);
+      if (data) return data;
+    }
+    
+    throw new Error("No valid response from any AI service");
+  } catch (e) {
+    throw e;
+  }
+}
+
+async function fetchFromAi(q, url){
+  try {
+    const { data } = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=hi`);
+    if (data) return data.result.reply;
+    
+    throw new Error("No valid response from any AI service");
+  } catch (e) {
+    return null
+  }
+}
 
 module.exports.config = {
     name: "ai",
@@ -21,14 +41,7 @@ module.exports.run = async function ({ api, event, args}) {
     const question = args.join(' ');
     
     if (!question)
-      return api.sendMessage(`✧⁠     ∩_∩
-✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  
-┏━━∪∪━━━━━━━━━┓ 
-✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿
-┗━━━━━━━━━━━━━┛
-━━━━━━━━━━━━━━━
-How can I assist you today?
-━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
+      return api.sendMessage(`✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\nHow can I assist you today?\n━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
 
     try {
        api.setMessageReaction("🔍", event.messageID, () => {}, true);
@@ -37,10 +50,7 @@ How can I assist you today?
         const info = await api.getUserInfo(event.senderID);
         const name = info[event.senderID].name;
         
-        const model = "gemini";
-        const response = await deku[model](question);
-        
-        const answer = response;
+        const answer = await getAnswers(question);
         api.setMessageReaction("✅", event.messageID, () => {}, true);
         const aiq = `✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━`;
         api.sendMessage(aiq, event.threadID, event.messageID);
