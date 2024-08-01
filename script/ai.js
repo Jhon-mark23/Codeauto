@@ -40,9 +40,9 @@ module.exports.config = {
 module.exports.run = async function ({ api, event, args}) {
     const question = args.join(' ');
     
-    if (!question)
+    if (!question){
       return api.sendMessage(`✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\nHow can I assist you today?\n━━━━━━━━━━━━━━━`, event.threadID, event.messageID);
-
+    }
     try {
        api.setMessageReaction("🔍", event.messageID, () => {}, true);
 
