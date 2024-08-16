@@ -19,6 +19,9 @@ async function fetchFromAi(q, url){
   try {
     const { data } = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
     if (data) return data.result.reply;
+
+    const { data } = await axios.get(`${url}/api/gpt4o?prompt=${q}&id=9999`);
+    if (data) return data?.reply;
     
     throw new Error("No valid response from any AI service");
   } catch (e) {
