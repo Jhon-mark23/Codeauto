@@ -3,14 +3,14 @@ const {
 } = require('hercai');
 const herc = new Hercai();
 module.exports.config = {
-  name: 'hercai',
+  name: 'Ai2',
   version: '1.0.0',
   role: 0,
   hasPrefix: true,
   description: "An AI command powered by Hercai",
-  usage: "hercai [prompt]",
+  usage: "Ai2 [prompt]",
   credits: 'Developer',
-  cooldown: 3,
+  cooldown: 0,
 };
 module.exports.run = async function({
   api,
@@ -22,7 +22,6 @@ module.exports.run = async function({
     api.sendMessage(`Please provide a question or statement after 'hercai'. For example: 'hercai What is the capital of France?'`, event.threadID, event.messageID);
     return;
   }
-  api.sendMessage(`🔍 "${input}"`, event.threadID, event.messageID);
   try {
     const response = await herc.question({
       model: "v3",
@@ -30,6 +29,6 @@ module.exports.run = async function({
     });
     api.sendMessage(response.reply, event.threadID, event.messageID);
   } catch (error) {
-    api.sendMessage('An error occurred while processing your request.', event.threadID, event.messageID);
+    api.sendMessage('Something went wrong. Please contact renz if the problem persist.', event.threadID, event.messageID);
   }
 };

@@ -75,12 +75,15 @@ module.exports.run = async function({
   api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
 ━━━━━━━━━━━━━━━
   ★ Ai
+  ★ Ai2
+  ★ Adduser
   ★ Cleo
   ★ Lyrics
   ★ Music 
+  ★ Leave 
   ★ Pedro 
   ★ Poulyn
-  ★ Qoute
+  ★ Quote
   ★ Shoti
   ★ Unsend
 ━━━━━━━━━━━━━━━

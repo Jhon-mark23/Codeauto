@@ -4,7 +4,7 @@ const apiUrls = require('../apiConfig.js')
 
 async function getAnswers(q){
   try {
-    for(url of apiUrls.joshuaApi){
+    for(url of apiUrls.codebuddyApi){
       const data = await fetchFromAi(q, url);
       if (data) return data;
     }
@@ -17,7 +17,7 @@ async function getAnswers(q){
 
 async function fetchFromAi(q, url){
   try {
-    const { data } = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
+    const { data } = await axios.get(`${url}`) await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
     if (data) return data.result.reply;
     
     throw new Error("No valid response from any AI service");

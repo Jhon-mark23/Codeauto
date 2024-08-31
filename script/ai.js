@@ -2,10 +2,10 @@ const axios = require('axios');
 const fs = require('fs');
 const apiUrls = require('../apiConfig.js')
 
-async function getAnswers(q){
+async function getAnswers(q, id){
   try {
     for(url of apiUrls.joshuaApi){
-      const data = await fetchFromAi(q, url);
+      const data = await fetchFromAi(q, url, id);
       if (data) return data;
     }
     
@@ -15,13 +15,13 @@ async function getAnswers(q){
   }
 }
 
-async function fetchFromAi(q, url){
+async function fetchFromAi(q, url, id){
   try {
+    const { data } = await axios.get(`${url}/api/gpt4o?prompt=${q}&id=${id}`);
+    if (data) return data.reply;
+    
     const { data } = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
     if (data) return data.result.reply;
-
-    const { data } = await axios.get(`${url}/api/gpt4o?prompt=${q}&id=9999`);
-    if (data) return data?.reply;
     
     throw new Error("No valid response from any AI service");
   } catch (e) {
@@ -51,7 +51,7 @@ module.exports.run = async function ({ api, event, args}) {
     try {
        api.setMessageReaction("🔍", event.messageID, () => {}, true);
        
-        const answer = await getAnswers(question);
+        const answer = await getAnswers(question, event.senderID);
         
         api.setMessageReaction("✅", event.messageID, () => {}, true);
         const aiq = `✧⁠     ∩_∩\n✧⁠◝( ⁠ꈍ⁠ᴗ⁠ꈍ)◜⁠✧  \n┏━━∪∪━━━━━━━━━┓ \n✿        𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆      ✿\n┗━━━━━━━━━━━━━┛\n━━━━━━━━━━━━━━━\n${answer}\n━━━━━━━━━━━━━━━`;
