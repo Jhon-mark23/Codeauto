@@ -6,6 +6,7 @@ module.exports.handleEvent = async ({
   event,
   api
 }) => {
+  return;
   if (event.logMessageData?.leftParticipantFbId === api.getCurrentUserID()) return;
   if (event.logMessageData?.leftParticipantFbId) {
     const info = await api.getUserInfo(event.logMessageData?.leftParticipantFbId);

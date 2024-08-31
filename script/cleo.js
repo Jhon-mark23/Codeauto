@@ -15,13 +15,14 @@ async function getAnswers(q, id){
   }
 }
 
-async function fetchFromAi(q, url, id){
+async function fetchFromAi(q, url, id = 999){
   try {
-    const { data } = await axios.get(`${url}/api/cleo?prompt=${q}&id=${id}`);
-    if (data) return data.reply;
+    let response = await axios.get(`${url}/api/cleo?prompt=${q}&id=${id}`);
     
-    const { data } = await axios.get(`${url}`) await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
-    if (data) return data.result.reply;
+    if (response.data.reply) return response.data.reply;
+    
+    response = await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
+    if (response.data) return data.result.reply;
     
     throw new Error("No valid response from any AI service");
   } catch (e) {
