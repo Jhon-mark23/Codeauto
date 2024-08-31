@@ -2,10 +2,10 @@ const axios = require('axios');
 const fs = require('fs');
 const apiUrls = require('../apiConfig.js')
 
-async function getAnswers(q){
+async function getAnswers(q, id){
   try {
-    for(url of apiUrls.codebuddyApi){
-      const data = await fetchFromAi(q, url);
+    for(url of apiUrls.joshuaApi){
+      const data = await fetchFromAi(q, url, id);
       if (data) return data;
     }
     
@@ -15,8 +15,11 @@ async function getAnswers(q){
   }
 }
 
-async function fetchFromAi(q, url){
+async function fetchFromAi(q, url, id){
   try {
+    const { data } = await axios.get(`${url}/api/cleo?prompt=${q}&id=${id}`);
+    if (data) return data.reply;
+    
     const { data } = await axios.get(`${url}`) await axios.get(`${url}/new/gpt-3_5-turbo?prompt=${q}`);
     if (data) return data.result.reply;
     
@@ -47,12 +50,12 @@ module.exports.run = async function ({ api, event, args}) {
     if (!query)
       return api.sendMessage(`🗨 | 𝙲𝚕𝚎𝚘 | \n━━━━━━━━━━━━━━━━ Hello! 👋 How can I assist you today?`, event.threadID, event.messageID);
       
-    const question = `In this conversation, you're Cleo. Add some emoji on your content to make it adorable ${name}. Now answer the following make it detailed: ` + query;
+    const question = `My name is ${name}. ` + query;
 
     try {
        api.setMessageReaction("⏱️", event.messageID, () => {}, true);
        
-       const answer = await getAnswers(question);
+       const answer = await getAnswers(question, event.senderID);
        
        api.setMessageReaction("✅", event.messageID, () => {}, true);
           
