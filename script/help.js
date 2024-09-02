@@ -46,13 +46,13 @@ const commands = {
   },
 }
 module.exports.config = {
-  name: 'info',
+  name: 'help',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
   aliases: ['commands'],
   description: "",
-  usage: "info",
+  usage: "help",
   credits: 'Renz Cleo',
   cooldown: 0,
 };
@@ -65,14 +65,14 @@ module.exports.run = async function({
     const command = args[0].toLowerCase();
     if (commands[command]) {
       const { name, info, usage } = commands[command];
-      return api.sendMessage(`𝗖𝗼𝗺𝗺𝗮𝗻𝗱 𝗜𝗻𝗳𝗼𝗿𝗺𝗮𝘁𝗶𝗼𝗻👾\n━━━━━━━━━━━━━━━━\n𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝙽𝚊𝚖𝚎: ${name}\n𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚘𝚗: ${info}\n𝚄𝚜𝚊𝚐𝚎: ${usage}\n━━━━━━━━━━━━━━━━`)
+      return api.sendMessage(`𝙲𝙾𝙼𝙼𝙰𝙽𝙳 𝙸𝙽𝙵𝙾𝚁𝙼𝙰𝚃𝙸𝙾𝙽👾\n━━━━━━━━━━━━━━━━\n𝙲𝚘𝚖𝚖𝚊𝚗𝚍 𝙽𝚊𝚖𝚎: ${name}\n𝙳𝚎𝚜𝚌𝚛𝚒𝚙𝚝𝚒𝚘𝚗: ${info}\n𝚄𝚜𝚊𝚐𝚎: ${usage}\n━━━━━━━━━━━━━━━━`)
     }else{
       return api.sendMessage(`Command not found. Type info to view all available commands.`)
     }
     
   }
   
-  api.sendMessage(`𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗖𝗼𝗺𝗺𝗮𝗻𝗱𝘀 👾
+  api.sendMessage(`𝚃𝚄𝚃𝙴𝙻 𝙱𝙾𝚃 𝙲𝙾𝙼𝙼𝙰𝙽𝙳𝚂👾
 ━━━━━━━━━━━━━━━
   ★ Ai
   ★ Aii
@@ -87,7 +87,5 @@ module.exports.run = async function({
   ★ Shoti
   ★ Unsend
 ━━━━━━━━━━━━━━━
-𝗙𝗼𝗹𝗹𝗼𝘄 𝘁𝗵𝗲 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿: https://www.facebook.com/bosscleo3233
-
-𝗖𝗼𝗱𝗲𝗕𝘂𝗱𝗱𝘆 𝗬𝗧: https://www.youtube.com/@CodeBuddySolutions`, event.threadID, event.messageID);
+𝗙𝗼𝗹𝗹𝗼𝘄 𝘁𝗵𝗲 𝗱𝗲𝘃𝗲𝗹𝗼𝗽𝗲𝗿: https://www.facebook.com/profile.php?id=100030880666720&mibextid=ZbWKwL`, event.threadID, event.messageID);
 };
