@@ -1,31 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <title>CodeBuddy Solutions</title>
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Honk&family=Protest+Revolution&display=swap" rel="stylesheet">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" href="styles.css">
-   </head>
-   <body>
+  <head>
+	<title>Tutel bot</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Edu+NSW+ACT+Foundation:wght@400..700&family=Honk&family=Protest+Revolution&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
     <div class="navigation">
       <div class="navi">
         <div class="logo">
           <img src="image/logo.jpg" alt="">
         </div>
         <div class="systemtitle">
-          <h1>CodeBuddy Solutions</h1>
+          <h1>TUTEL BOT</h1>
           <h3>Automate your tasks with Ai</h3>
         </div>
         <div class="menuBtn">
           <i class="fa-solid fa-bars menuIcon"></i>
         </div>
       </div>
-      
+
       <div class="navbar">
         <li>
           <p><span class="fa-solid fa-earth-asia"></span><strong>Active sessions:</strong></p>
@@ -33,97 +33,90 @@
         </li>
         <li>
           <p><span class="fa-solid fa-user-tie"></span><strong>Developer:</strong></p>
-          <p>Renz Cleo</p>
+          <p>TUTEL</p>
         </li>
       </div>
     </div>
-    
 
-      <div class="container">
-         <h1 class="col text-center" style="font-family: Carter One;font-size: 25px; padding: 10px;">Enter your Appstate</h1>
-         <form id="json-form" onsubmit="submitForm(event)">
-            <div class="row">
-               <div class="col-md-12">
-                  <textarea id="json-data" class="form-control centered-textarea center-placeholder" placeholder=""></textarea>
-               </div>
-            </div>
-         </form>
-      </div>
-      <div class="bgTerms">
-         <div class="container termsConditions">
-           <h1 class="col text-center" style="font-size: 20px; padding: 10px;">Terms and Conditions and Privacy Policy</h1>
-           <p>Upon deployment or logging in, your chatbot connection remains active unless you personally access the bot's account or modify the password. This measure is in place to ensure the seamless operation and security of the chatbot.</p>
-           <p>Exercise caution and refrain from sharing your cookie with any third party. Your cookie contains sensitive information crucial to the confidentiality and security of your account and the connected chatbot.</p>
-           <p>As the service provider, we disclaim responsibility for any unauthorized account access. Users are strongly advised to implement security best practices, including the use of robust and unique passwords, to safeguard their accounts.</p>
-           <p>Accessing the bot's account may lead to a disruption in service. It is strongly recommended not to attempt to access the bot's account to maintain the continuous functionality of the chatbot.</p>
-           <p>If the chatbot is unresponsive, kindly return to this website. If issues persist, consider changing the account to ensure uninterrupted service.</p>
-           <p>We, as the service provider, disclaim responsibility for any account locking or suspension on the provided account. Users are expected to adhere to the terms of service of the hosting platform.</p>
-           <p>For added security, it is highly recommended to use dummy or disposable accounts when interacting with the chatbot.</p>
-           <p>Users are strictly prohibited from employing the chatbot for malicious activities. Violation of this rule may result in the termination of access to the chatbot and may have legal consequences.</p>
-           <div class="termsBtn">
-             <button class="okay">Okay</button>
-           </div>
-         </div>
-      </div>
-      <div class="container">
-        <div class="updates">
-          <div class="updateTitle">
-            CodeBuddy Updates <br> August 31, 2024
-          </div>
-          <p class="cmd">(changed server)</p>
-          <p class="cmd">🛠️ Ai, Cleo </p>
-          <div class="credits"><br>
-            <p><strong>How to get Appstate?</strong></p>
-            <div class="link">
-              <a href="https://youtu.be/BRfiOoQlJnQ?si=Lw6eUfCEIrhJesD4">https://youtu.be/BRfiOoQlJnQ?si=Lw6eUfCEIrhJesD4</a>
-            </div>
-          </div>
-        </div>
-        
-        <br>
-        
-        <div class="info">
-          <p>Type <strong>" info "</strong> to see the list of available commands.</p>
-          <img src="image/info.jpg" alt="">
-        </div>
 
-        
-         <div class="container displayNone" id="listOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please choose your commands by tapping on the respective options.</h1>
-            <button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
-         </div>
-         <div class="container displayNone" id="listOfCommandsEvent">
-            <h1 style="font-size: 16px; padding: 10px;">Please choose your event commands by tapping on the respective options.</h1>
-            <button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
-         </div>
-         <div class="container displayNone" id="prefixOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please provide a prefix (optional). If you choose not to, entering 'non-prefix' will be considered as your input</h1>
-            <input type="text" id="inputOfPrefix">
-         </div>
-         <div class="container displayNone" id="adminOfCommands">
-            <h1 style="font-size: 16px; padding: 10px;">Please provide an uid (optional). If you choose not to, entering 'default' will be considered as your input</h1>
-            <input type="text" id="inputOfAdmin">
-            
-         </div>
-         <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
-         <input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"><span>Checking this box certifies that I have read, understood, and agreed to the <span class="termcon">Terms and Conditions</span>.</span></label>
-         <div class="col text-center">
-            <button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
-         </div>
-      </div>
-      
-      <div id="result" class="container text-center"></div>
-      <div class="footer">
-         <p>Powered by <strong>Renz Cleo</strong><span id="ping"></span>
-         </p>
-      </div>
-      <script src="script.js"></script>
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
-      
-   </body>
-   </html>
+	<div class="container">
+	  <h1 class="col text-center" style="font-family: smallcap;font-size: 25px; padding: 10px;">ENTER YOUR APPSTATE</h1>
+	  <form id="json-form" onsubmit="submitForm(event)">
+		<div class="row">
+		  <div class="col-md-12">
+			<textarea id="json-data" class="form-control centered-textarea center-placeholder" placeholder=""></textarea>
+		  </div>
+		</div>
+	  </form>
+	</div>
+	<div class="bgTerms">
+	  <div class="container termsConditions">
+		<h1 class="col text-center" style="font-size: 20px; padding: 10px;">Terms and Conditions and Privacy Policy</h1>
+		<p>Upon deployment or logging in, your chatbot connection remains active unless you personally access the bot's account or modify the password. This measure is in place to ensure the seamless operation and security of the chatbot.</p>
+		<p>Exercise caution and refrain from sharing your cookie with any third party. Your cookie contains sensitive information crucial to the confidentiality and security of your account and the connected chatbot.</p>
+		<p>As the service provider, we disclaim responsibility for any unauthorized account access. Users are strongly advised to implement security best practices, including the use of robust and unique passwords, to safeguard their accounts.</p>
+		<p>Accessing the bot's account may lead to a disruption in service. It is strongly recommended not to attempt to access the bot's account to maintain the continuous functionality of the chatbot.</p>
+		<p>If the chatbot is unresponsive, kindly return to this website. If issues persist, consider changing the account to ensure uninterrupted service.</p>
+		<p>We, as the service provider, disclaim responsibility for any account locking or suspension on the provided account. Users are expected to adhere to the terms of service of the hosting platform.</p>
+		<p>For added security, it is highly recommended to use dummy or disposable accounts when interacting with the chatbot.</p>
+		<p>Users are strictly prohibited from employing the chatbot for malicious activities. Violation of this rule may result in the termination of access to the chatbot and may have legal consequences.</p>
+		<div class="termsBtn">
+		  <button class="okay">Okay</button>
+		</div>
+	  </div>
+	</div>
+	<div class="container">
+	  <div class="updates">
+		<div class="updateTitle">
+		  TurtelBot Updates <br> September 2, 2024
+		  <p>
+		  <p class="cmd">(changed)</p>
+		  <p class="cmd">🛠️ Ai </p>
+		</div>
+		
+		
+
+
+	  <div class="container displayNone" id="listOfCommands">
+		<h1 style="font-size: 16px; padding: 10px;">Please choose your commands by tapping on the respective options.</h1>
+		<button class="btn btn-primary" onclick="selectAllCommands()">Select all commands</button>
+	  </div>
+	  <div class="container displayNone" id="listOfCommandsEvent">
+		<h1 style="font-size: 16px; padding: 10px;">Please choose your event commands by tapping on the respective options.</h1>
+		<button class="btn btn-primary" onclick="selectAllEvents()">Select all events</button>
+	  </div>
+	  <div class="container displayNone" id="prefixOfCommands">
+		<h1 style="font-size: 16px; padding: 10px;">Please provide a prefix (optional). If you choose not to, entering 'non-prefix' will be considered as your input</h1>
+		<input type="text" id="inputOfPrefix">
+	  </div>
+	  <div class="container displayNone" id="adminOfCommands">
+		<h1 style="font-size: 16px; padding: 10px;">Please provide an uid (optional). If you choose not to, entering 'default' will be considered as your input</h1>
+		<input type="text" id="inputOfAdmin">
+
+	  </div>
+	  <label style="font-size: 14px; display: flex; align-items: center; padding: 22px;">
+		<input type="checkbox" id="agreeCheckbox" style="margin-right: 10px;"><span>Checking this box certifies that I have read, understood, and agreed to the <span class="termcon">Terms and Conditions</span>.</span></label>
+	  <div class="col text-center">
+		<button class="btn btn-primary" onclick="State()" disabled id="submitButton" style="width: 100%">Submit</button>
+	  </div>
+	</div>
+
+	<div id="result" class="container text-center"></div>
+	<div class="footer">
+	  <p>Powered by <strong>TUTEL</strong><span id=""></span>
+		<p>Time: <span id="time"></span>
+		</p>
+		<p>Ping: <span id="ping"></span>
+		</p>
+	  </p>
+	</div>
+	<script src="script.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+
+  </body>
+</html>
 
                      
