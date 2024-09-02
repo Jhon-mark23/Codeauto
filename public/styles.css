@@ -1,8 +1,8 @@
 :root{
-  --bg:#29353C;
+    --bg:#29353C;
   --bg-variant:#44576D;
   --primary-variant:#768A96;
-  --primary:#AAC7D8;
+  --primary:#DFEBF6;
   --color:#DFEBF6;
   --color-variant:#fafafa;
   --black: #0e0e0e;
@@ -104,7 +104,7 @@
 }
 
 .termcon{
-  color: #007bff;
+  color: #FF333333;
 }
 
 .termsBtn{
@@ -144,7 +144,7 @@
   text-align: center;
   font-size: 22px;
   font-weight: 500;
-  font-family: "Protest Revolution", Sans-Serif;
+  font-family: Sans-Serif;
 }
 
 .updates p{
@@ -171,7 +171,7 @@
 body {
      padding: 80px 20px 40px;
      background-color: var(--primary);
-     font-family: 'Poppins', sans-serif;
+     font-family: sans-serif;
 }
  .container {
      background-color: var(--color);
