@@ -3,7 +3,7 @@ const {
 } = require('hercai');
 const herc = new Hercai();
 module.exports.config = {
-  name: 'Aii',
+  name: 'Aiii',
   version: '1.0.0',
   role: 0,
   hasPrefix: false,
